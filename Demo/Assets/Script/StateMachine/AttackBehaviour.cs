@@ -17,6 +17,8 @@ public abstract class AttackBehaviour : MonoBehaviour
     
     public int priority;
 
+    public float knockBackForce;
+
     [SerializeField]
     private float coolTime;
 

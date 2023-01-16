@@ -10,7 +10,9 @@ public class BaseCharacterController : MonoBehaviour, IAttackable, IDamageable//
 
     protected StateMachine<BaseCharacterController> stateMachine;
 
-    public int index; // 캐릭터들 정렬 시 위치 인덱스
+    [SerializeField]
+    private Rigidbody2D rigidbody;
+
     public bool allignTrigger = false;
     public bool waitingTrigger = false; // 모두 정렬할 때까지 기다리고 있는가 
     public bool waitingToMoveTrigger = false; // 모두 정렬하고 이동할 수 있는가
@@ -50,6 +52,7 @@ public class BaseCharacterController : MonoBehaviour, IAttackable, IDamageable//
     #region Unity Methods
     private void Start()
     {
+        rigidbody = GetComponent<Rigidbody2D>();
         stateMachine = new StateMachine<BaseCharacterController>(this, new NonCombatMoveState());
         stateMachine.AddState(new AllignState());
         stateMachine.AddState(new NonCombatIdleState());
@@ -281,7 +284,7 @@ public class BaseCharacterController : MonoBehaviour, IAttackable, IDamageable//
 
         if (IsAlive)
         {
-            //애니메이터를 추가해서 trigger 처리를 해서 맞는 애니메이션을 넣을 것인지, State를 만들 것인지?
+      
         }
         else
         {
@@ -295,7 +298,7 @@ public class BaseCharacterController : MonoBehaviour, IAttackable, IDamageable//
 
         float blinkTime = 0.1f;
         int blinkCount = 2;
-
+        
         SpriteRenderer sprite = GetComponent<SpriteRenderer>();
 
         for (int i = 0; i < blinkCount; i++)
@@ -309,6 +312,12 @@ public class BaseCharacterController : MonoBehaviour, IAttackable, IDamageable//
             yield return new WaitForSeconds(blinkTime);
         }
 
+    }
+
+    public void KnockBack(float knockBackForce)
+    {
+        rigidbody.AddForce(Vector2.right * -1 * dir * knockBackForce, ForceMode2D.Impulse);
+        //rigidbody.AddForce(transform.up, ForceMode2D.Impulse);
     }
     #endregion IDamageable Interfaces
 

@@ -16,6 +16,7 @@ public class MeleeAttackBehaviour_AreaAttack : AttackBehaviour
         {
             
             collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(damage, effectPrefab);
+            collider.gameObject.GetComponent<BaseCharacterController>()?.KnockBack(knockBackForce);
         }
 
         calcCoolTime = 0.0f;

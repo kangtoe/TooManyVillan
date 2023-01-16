@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 8811717823242979005}
   - component: {fileID: 8811717823242979007}
   - component: {fileID: 8811717823242978978}
+  - component: {fileID: -8198322784518850727}
   m_Layer: 10
   m_Name: Enemy_Melee (1)
   m_TagString: Untagged
@@ -206,6 +207,7 @@ MonoBehaviour:
   animationIndex: 0
   damage: 10
   priority: 0
+  knockBackForce: 0
   coolTime: 1
   calcCoolTime: 0
   effectPrefab: {fileID: 0}
@@ -228,6 +230,7 @@ MonoBehaviour:
   animationIndex: 1
   damage: 25
   priority: 1
+  knockBackForce: 10
   coolTime: 5
   calcCoolTime: 0
   effectPrefab: {fileID: 0}
@@ -247,9 +250,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5cc0e5a5cccf349ab5c343fb8f4c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 0
+  rigidbody: {fileID: 0}
   allignTrigger: 0
   waitingTrigger: 0
+  waitingToMoveTrigger: 0
   allignPoint: 0
   MyGroup: {fileID: 7491253207422018070, guid: fc5302aa47c22534c94fc84ff664760b, type: 3}
   hitEffectPrefab: {fileID: 0}
@@ -270,3 +274,24 @@ MonoBehaviour:
   attackBehaviours:
   - {fileID: 8811717823242979005}
   - {fileID: 8811717823242979007}
+--- !u!50 &-8198322784518850727
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8811717823242978983}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 5
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6

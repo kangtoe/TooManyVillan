@@ -8,7 +8,7 @@ public class RangeAttackBehaviour_Hitscan : AttackBehaviour // 원거리 캐릭�
     public override void ExecuteAttack(GameObject target = null, Transform startPoint = null)
     {
         target.GetComponent<IDamageable>()?.TakeDamage(damage, effectPrefab); // target은 attackTarget으로 받아온다.
-
+        
         calcCoolTime = 0.0f;
     }
 }
