@@ -18,6 +18,8 @@ public class BattleSceneManager : MonoBehaviour
 
     public float enemyGroupRespawnPosx; // 적들 생성 위치
 
+    public float bossRespawnPosX; // 보스 생성 위치
+
 
     //첫번째, prefab을 둬서 캐릭터를 생성하게 한다.
 
@@ -41,9 +43,11 @@ public class BattleSceneManager : MonoBehaviour
         playerGroup.characterGroup.Clear();
         enemyGroup.characterGroup.Clear();
 
-        Invoke("CreatePlayer", 2f);
+        Invoke("CreatePlayer", 0f);
 
         Invoke("CreateEnemy", 3f);
+
+        Invoke("CreateBoss", 33f);
 
     }
 
@@ -77,8 +81,8 @@ public class BattleSceneManager : MonoBehaviour
         if (enemyGroup.characterGroup.Count == 0 && isEngaging) // 적 그룹이 없고, 상태가 교전 중이었을 때,
         {
             isEngaging = false;
-            
-            playerGroup.AlignCharacters(); 
+
+            playerGroup.AlignCharacters();
 
             enemyGroup.characterGroup.Clear(); 
          
@@ -93,6 +97,7 @@ public class BattleSceneManager : MonoBehaviour
         
     }
 
+    
 
     public void CreatePlayer() // 스테이지 입장 시 위치에 맞게 캐릭터 생성
     {
@@ -110,9 +115,11 @@ public class BattleSceneManager : MonoBehaviour
 
         float[] characPos = playerGroup.GetPoints(playerGroupRespawnPosX, gameObjects.Length, playerGroup.interval);
 
+        
         for (int i = 0; i < gameObjects.Length; i++)
         {
-            GameObject playerClone = Instantiate(gameObjects[i], new Vector3 (characPos[i],-2), gameObjects[i].transform.rotation); //  new Vector3 (characPos[i], -2) = 임시 위치
+            
+            GameObject playerClone = Instantiate(gameObjects[i], new Vector3 (characPos[i],-2 + (0.00001f * i)), gameObjects[i].transform.rotation); //  new Vector3 (characPos[i], -2) = 임시 위치
             BaseCharacterController character = playerClone.GetComponent<BaseCharacterController>(); // 캐릭터에서 컨트롤러를 가져와 그룹에 넣어준다
             playerGroup.characterGroup.Add(character);
             character.MyGroup = playerGroup;
@@ -134,9 +141,11 @@ public class BattleSceneManager : MonoBehaviour
 
         float[] enemyPos = enemyGroup.GetPoints(enemyGroupRespawnPosx, gameObjects.Length, enemyGroup.interval);
 
+        
         for (int i = 0; i < gameObjects.Length; i++)
         {
-            GameObject enemyClone = Instantiate(gameObjects[gameObjects.Length - i -1], new Vector3(enemyPos[i], -2), gameObjects[i].transform.rotation); //  new Vector3 (characPos[i], -2) = 임시 위치
+            //float yPos = Random.Range(0, 1.0f);
+            GameObject enemyClone = Instantiate(gameObjects[gameObjects.Length - i -1], new Vector3(enemyPos[i], -2 + (0.00001f * i)), gameObjects[i].transform.rotation); //  new Vector3 (characPos[i], -2) = 임시 위치
             BaseCharacterController enemy = enemyClone.GetComponent<BaseCharacterController>(); // 캐릭터에서 컨트롤러를 가져와 그룹에 넣어준다
             enemyGroup.characterGroup.Add(enemy);
             enemy.MyGroup = enemyGroup;
@@ -145,7 +154,31 @@ public class BattleSceneManager : MonoBehaviour
         BattleStart(); // 적 생성과 동시에 전투 진입
     }
 
-    
-    
-   
+    public void CreateBoss() // 보스 생성
+    {
+        //적 생성 전에 그룹을 비워준다.
+
+        if (enemyGroup.characterGroup != null)
+        {
+            enemyGroup.characterGroup.Clear();
+        }
+
+        GameObject gameObject = GameManager.instance.GetBoss();
+
+        // 지정한 groupCenterX에 적들이 리스폰 할 위치들을 저장
+
+
+        GameObject enemyClone = Instantiate(gameObject, new Vector3(bossRespawnPosX, -2 + (0.00001f)), gameObject.transform.rotation); //  new Vector3 (characPos[i], -2) = 임시 위치
+        BaseCharacterController enemy = enemyClone.GetComponent<BaseCharacterController>(); // 캐릭터에서 컨트롤러를 가져와 그룹에 넣어준다
+        enemyGroup.characterGroup.Add(enemy);
+        enemy.MyGroup = enemyGroup;
+
+
+        BattleStart(); // 적 생성과 동시에 전투 진입
+    }
+
+
+
+
+
 }

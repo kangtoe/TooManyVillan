@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] playerCharacters;
     public GameObject[] enemyCharacters;
+    public GameObject bossCharacter;
+
     private void Awake()
     {
         if (null == instance)
@@ -31,5 +33,10 @@ public class GameManager : MonoBehaviour
     public GameObject[] GetEnemyList()
     {
         return enemyCharacters;
+    }
+
+    public GameObject GetBoss()
+    {
+        return bossCharacter;
     }
 }

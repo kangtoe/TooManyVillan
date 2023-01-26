@@ -14,6 +14,8 @@ public class GroupObject : MonoBehaviour
     public float groupSpeed = 1.0f;
     public bool AllCharactersWaiting => AllCharactersWaitingCheck();
 
+    public bool AllCharactersAttacking => AllCharactersAttackingCheck();
+
     // Parameter : 중앙 지점, 일정 간격을 두려는 오브젝트수, 오브젝트 간의 거리
     // Return : 배치할려는 오브젝트들이 중앙 지점으로부터 얼마나 떨어져야 하는 지 반환
 
@@ -104,8 +106,14 @@ public class GroupObject : MonoBehaviour
 
         return true;
     }
-    
-    
+
+    private bool AllCharactersAttackingCheck()
+    {
+        return true;
+    }
+
+
+
 
     public void RemoveCharacterInGroup(BaseCharacterController character) // 플레이어 구성원들이 사망 시 초기화, DeadState 전환시 호출
     {

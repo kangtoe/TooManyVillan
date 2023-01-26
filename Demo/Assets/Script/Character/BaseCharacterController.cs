@@ -155,8 +155,9 @@ public class BaseCharacterController : MonoBehaviour, IAttackable, IDamageable//
 
     private void AllignCheck()
     {
-        if (allignTrigger == true)
+        if (allignTrigger == true && stateMachine.CurrentState.GetType().Name == "CombatIdleState") // 현재 상태가 CombatIdleState 인 경우에만 정렬
         {
+            
             allignTrigger = false;
 
             stateMachine.ChangeState<AllignState>();
@@ -189,15 +190,15 @@ public class BaseCharacterController : MonoBehaviour, IAttackable, IDamageable//
     {
         Gizmos.color = Color.red;
         Vector3 direction = Vector3.right * dir * attackRange;
-        Gizmos.DrawRay(transform.position, direction);
+        Gizmos.DrawRay(rayPoint.position, direction);
 
         Gizmos.color = Color.blue;
         Vector3 direction1 = Vector3.right * dir * fallBackCheckDistance;
-        Gizmos.DrawRay(transform.position, direction1);
+        Gizmos.DrawRay(rayPoint.position, direction1);
 
         Gizmos.color = Color.black;
         Vector3 direction2 = Vector3.right * dir * fallBackDistance;
-        Gizmos.DrawRay(transform.position, direction2);
+        Gizmos.DrawRay(rayPoint.position, direction2);
     }
 
     #endregion
