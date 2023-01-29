@@ -257,7 +257,7 @@ MonoBehaviour:
   allignPoint: 0
   MyGroup: {fileID: 7491253207422018070, guid: fc5302aa47c22534c94fc84ff664760b, type: 3}
   hitEffectPrefab: {fileID: 0}
-  maxHealth: 100
+  maxHealth: 1000
   health: 100
   dir: -1
   TargetMask:
