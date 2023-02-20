@@ -251,7 +251,7 @@ public partial class AkBasePathGetter
 #else
 					var format = "WwiseUnity: Could not locate the SoundBanks in {0}. Did you make sure to copy them to the StreamingAssets folder?";
 #endif
-					UnityEngine.Debug.LogErrorFormat(format, tempSoundBankBasePath);
+					UnityEngine.Debug.LogWarningFormat(format, tempSoundBankBasePath);
 				}
 			}
 #endif
