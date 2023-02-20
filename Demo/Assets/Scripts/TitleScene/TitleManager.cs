@@ -31,15 +31,7 @@ public class TitleManager : MonoBehaviour
     }
     public void MoveScene(string str)
     {
-        Scene scene = SceneManager.GetSceneByName(str);
-        if (scene == null)
-        {
-            Debug.Log("scene name is not available! : " + str);
-            return;
-        }
-
-        int i = scene.buildIndex;
-        MoveScene(i);
+        SceneManager.LoadScene(str);
     }
 
     #endregion load scene
