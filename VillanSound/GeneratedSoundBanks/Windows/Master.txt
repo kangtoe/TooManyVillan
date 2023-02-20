@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	4043457044	Test_BGM_Magye			\Default Work Unit\MUS\Test_BGM_Magye	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	205671149	BGM_Main_Magyetheme	E:\GameDev\TooManyvillan\TooManyVillan\TooManyVillan\VillanSound\.cache\Windows\SFX\BGM_Main_Magyetheme_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Test_Main_Theme\BGM_Main_Magyetheme\BGM_Main_Magyetheme		18603156
+

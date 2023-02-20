@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 941a018f7f4cd314fb2cf7dac969dea0, type: 3}
+  m_Name: A4B7D9D5-1082-42A4-8115-812613624026
+  m_EditorClassIdentifier: 
+  objectName: Test_BGM_Magye
+  id: 4043457044
+  guid: A4B7D9D5-1082-42A4-8115-812613624026

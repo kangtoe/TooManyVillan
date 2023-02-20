@@ -66,8 +66,22 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: b99223fb6447c84db05eb083b3fee294
     GuidInternal: 
-    m_lastTime: -8585277540634775808
-    List: []
+    m_lastTime: -8585247115154775808
+    List:
+    - name: Master
+      guid: f3644fcd5b580a41b36251ef843b9b6b
+      id: 4056684167
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b99223fb6447c84db05eb083b3fee294
+      - ElementName: Master
+        ObjectType: 7
+        guid: f3644fcd5b580a41b36251ef843b9b6b
+      Path: SoundBanks\Default Work Unit\Master
   EventWwu:
   - PhysicalPath: Events\Default Work Unit.wwu
     PathAndIcons:
@@ -80,8 +94,44 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 2e227707560b204ca59d2eeabb4a94ae
     GuidInternal: 
-    m_lastTime: -8585277540614775808
+    m_lastTime: -8585247116554775808
     List: []
+  - PhysicalPath: Events\MUS.wwu
+    PathAndIcons:
+    - ElementName: Events
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 2e227707560b204ca59d2eeabb4a94ae
+    - ElementName: MUS
+      ObjectType: 12
+      guid: f288652ac57df24abaccd5151cd7ffef
+    ParentPath: Events\Default Work Unit\MUS
+    guid: f288652ac57df24abaccd5151cd7ffef
+    GuidInternal: 
+    m_lastTime: -8585247116194775808
+    List:
+    - name: Test_BGM_Magye
+      guid: d5d9b7a48210a4428115812613624026
+      id: 4043457044
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 2e227707560b204ca59d2eeabb4a94ae
+      - ElementName: MUS
+        ObjectType: 12
+        guid: f288652ac57df24abaccd5151cd7ffef
+      - ElementName: Test_BGM_Magye
+        ObjectType: 3
+        guid: d5d9b7a48210a4428115812613624026
+      Path: Events\Default Work Unit\MUS\Test_BGM_Magye
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -138,9 +188,9 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8585277540614775808
     List: []
-  ExpandedFileSystemItemIds: 020000000a000000
+  ExpandedFileSystemItemIds: 0200000004000000050000000600000007000000080000000a000000
   ExpandedWaapiItemIds: 020000000a000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
-  currentDataSource: 1
+  currentDataSource: 0
   CurrentPluginConfig: 
