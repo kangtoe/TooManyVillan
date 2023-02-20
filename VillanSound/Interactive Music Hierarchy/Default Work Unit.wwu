@@ -1,6 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{819CF417-C12B-4013-BBD7-6724A4061776}" SchemaVersion="103">
 	<InteractiveMusic>
-		<WorkUnit Name="Default Work Unit" ID="{819CF417-C12B-4013-BBD7-6724A4061776}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{819CF417-C12B-4013-BBD7-6724A4061776}" PersistMode="Standalone">
+			<ChildrenList>
+				<MusicPlaylistContainer Name="Test_Main_Theme" ID="{8DEBD1BC-2D9D-4314-A620-11CF99B2971F}" ShortID="623191774">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{338DCBD4-0FE8-44AA-96FC-7B4D3D913514}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B6D59613-D9EF-4411-A8C7-25F9987BFAD4}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicSegment Name="BGM_Main_Magyetheme" ID="{985CB42E-30DD-4A41-BEC1-1CCF0BFC0503}" ShortID="612967097">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="105459.705215419"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{338DCBD4-0FE8-44AA-96FC-7B4D3D913514}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B6D59613-D9EF-4411-A8C7-25F9987BFAD4}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="BGM_Main_Magyetheme" ID="{55B4195E-EB5F-41DB-8EF5-C7847BD13996}" ShortID="857883191">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B6D59613-D9EF-4411-A8C7-25F9987BFAD4}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="BGM_Main_Magyetheme" ID="{D5E3F46F-BC36-40A8-8479-69DA9F3A304C}">
+											<Language>SFX</Language>
+											<AudioFile>BGM_Main_Magyetheme.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="205671149"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{2D8D0AAB-9314-4842-A906-5C199DACBAE0}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{AE159DE0-B2FB-4840-99D0-C19B4D80024A}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="BGM_Main_Magyetheme" ID="{594B4D9D-3B03-49ED-BAC6-64343AECC10A}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="105459.705215419"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="BGM_Main_Magyetheme" ID="{D5E3F46F-BC36-40A8-8479-69DA9F3A304C}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Cues">
+									<Reference>
+										<Local>
+											<MusicCue Name="Entry Cue" ID="{C53025E7-6A43-4A8B-8D52-9B71A3F046F5}"/>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="Exit Cue" ID="{9491358E-D706-47D3-A178-6C1961BE517F}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="105459.705215419"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicSegment>
+					</ChildrenList>
+					<TransitionList>
+						<MusicTransition Name="Root" ID="{3E9FD846-3FFC-49E9-AF6E-3A9A43FCA4D9}">
+							<PropertyList>
+								<Property Name="IsFolder" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicTransition Name="Transition" ID="{41195F31-98E9-455D-9752-4D90F25C1E24}">
+									<TransitionInfo/>
+								</MusicTransition>
+							</ChildrenList>
+							<TransitionInfo/>
+						</MusicTransition>
+					</TransitionList>
+					<ObjectLists/>
+					<Playlist>
+						<MusicPlaylistItem Name="" ID="{9257A7CD-3CC9-4867-978F-B5CCADFD92BC}" ShortID="119419676">
+							<ChildrenList>
+								<MusicPlaylistItem Name="" ID="{66F5C371-5938-49FD-86AA-18F37BA2186B}" ShortID="1023716264">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{BECE37E6-330B-4279-9E0C-526AD352C6EB}"/>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+									</PropertyList>
+									<SegmentRef Name="BGM_Main_Magyetheme" ID="{985CB42E-30DD-4A41-BEC1-1CCF0BFC0503}"/>
+								</MusicPlaylistItem>
+							</ChildrenList>
+						</MusicPlaylistItem>
+					</Playlist>
+				</MusicPlaylistContainer>
+			</ChildrenList>
+		</WorkUnit>
 	</InteractiveMusic>
 </WwiseDocument>

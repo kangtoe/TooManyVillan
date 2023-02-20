@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
+	<RootPaths>
+		<ProjectRoot>E:\GameDev\TooManyvillan\TooManyVillan\TooManyVillan\VillanSound\</ProjectRoot>
+		<SourceFilesRoot>E:\GameDev\TooManyvillan\TooManyVillan\TooManyVillan\VillanSound\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>E:\GameDev\TooManyvillan\TooManyVillan\TooManyVillan\VillanSound\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>E:\GameDev\TooManyvillan\TooManyVillan\TooManyVillan\VillanSound\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX" Hash="3690994985">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="4056684167" Language="SFX" Hash="748698922">
+			<ObjectPath>\SoundBanks\Default Work Unit\Master</ObjectPath>
+			<ShortName>Master</ShortName>
+			<Path>Master.bnk</Path>
+			<IncludedEvents>
+				<Event Id="4043457044" Name="Test_BGM_Magye" ObjectPath="\Events\Default Work Unit\MUS\Test_BGM_Magye" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="205671149" Language="SFX">
+							<ShortName>BGM_Main_Magyetheme.wav</ShortName>
+							<Path>SFX\BGM_Main_Magyetheme_D79FB2B7.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
