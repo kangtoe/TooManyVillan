@@ -1,3 +1,4 @@
 Base path: 'D:/Unity2020.3.30f1(64bit)/Editor/Data', plugins path 'D:/Unity2020.3.30f1(64bit)/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
 
+Cmd: shutdown
