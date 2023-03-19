@@ -39,6 +39,11 @@ public class BaseCharacterController : MonoBehaviour, IAttackable, IDamageable//
 
     [SerializeField]
     private List<AttackBehaviour> attackBehaviours = new List<AttackBehaviour>(); // 가능한 공격 및 스킬을 담은 리스트
+
+    public List<SynergyBase> snergys = new List<SynergyBase>(); // 보유한 시너지들을 담은 리스트
+    public int healthAdd = 0; // 체력 및 보호막 버프 시 더해주는 수치
+    public float attackDefault = 1f; // 기본 공격력 수치
+    public float synergyAttackMult = 1.0f; // 시너지에 의한 공격력 버프 시 곱해주는 수치
     #endregion Variables
 
     #region Properties
@@ -63,8 +68,10 @@ public class BaseCharacterController : MonoBehaviour, IAttackable, IDamageable//
         stateMachine.AddState(new FallBackState());
         stateMachine.AddState(new DeadState());
 
-       
-        health = maxHealth;
+
+        health = maxHealth + healthAdd;
+        // 시너지로 인한 버프는 다음과 같이 기본 공격력으로 세팅
+        attackDefault = attackDefault * synergyAttackMult;
         InitAttackBehaviour();
 
         
@@ -261,7 +268,7 @@ public class BaseCharacterController : MonoBehaviour, IAttackable, IDamageable//
         if (CurrentAttackBehaviour != null && attackTarget != null)
         {
             //Debug.Log("OnExecuteAttack : " + attackIndex);
-            CurrentAttackBehaviour.ExecuteAttack(attackTarget.gameObject, projectileTransform);
+            CurrentAttackBehaviour.ExecuteAttack(attackTarget.gameObject, projectileTransform, attackDefault);
         }
     }
 
@@ -279,6 +286,8 @@ public class BaseCharacterController : MonoBehaviour, IAttackable, IDamageable//
         }
 
         health -= damage;
+
+        Debug.Log("Damage : " + damage);
 
         StartCoroutine("GetDamage");
 

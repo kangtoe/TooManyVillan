@@ -7,7 +7,7 @@ public class RangeAttackBehaviour_PJT : AttackBehaviour // 원거리 캐릭터 �
     [SerializeField]
     GameObject bullet;
     
-    public override void ExecuteAttack(GameObject target = null, Transform firePoint = null)
+    public override void ExecuteAttack(GameObject target = null, Transform firePoint = null, float attackMult = 1f)
     {
         Vector3 vec = transform.position;
 
@@ -18,7 +18,7 @@ public class RangeAttackBehaviour_PJT : AttackBehaviour // 원거리 캐릭터 �
 
         GameObject go = Instantiate(bullet, vec, transform.rotation);
 
-        go.GetComponent<Bullet>().SetDamage(damage);
+        go.GetComponent<Bullet>().SetDamage((int)(damage * attackMult));
         go.GetComponent<Bullet>().SetTarget(targetMask);
         calcCoolTime = 0.0f;
     }

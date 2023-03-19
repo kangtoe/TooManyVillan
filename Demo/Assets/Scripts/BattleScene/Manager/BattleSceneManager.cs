@@ -123,7 +123,16 @@ public class BattleSceneManager : MonoBehaviour
             BaseCharacterController character = playerClone.GetComponent<BaseCharacterController>(); // 캐릭터에서 컨트롤러를 가져와 그룹에 넣어준다
             playerGroup.characterGroup.Add(character);
             character.MyGroup = playerGroup;
+
+            for (int j = 0; j < character.snergys.Count; j++)
+            {
+                // 각 캐릭터들의 시너지들을 버프 매니저에 전달한다. 
+                character.snergys[j].AddSynergyCount();
+            }
         }
+
+        // 버프 매니저쪽의 시너지 체크해주는 함수 호출 
+        BuffManager.instance.SynergyCheck();
     }
 
     public void CreateEnemy() // 적 트리거 발동 시, 적 생성

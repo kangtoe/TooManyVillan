@@ -47,6 +47,8 @@ GameObject:
   - component: {fileID: 6458883707610082765}
   - component: {fileID: 6458883707610082760}
   - component: {fileID: 8375581828794057548}
+  - component: {fileID: -5712329446017100808}
+  - component: {fileID: 4426208182413872607}
   m_Layer: 9
   m_Name: Player_Range
   m_TagString: Untagged
@@ -260,6 +262,11 @@ MonoBehaviour:
   attackBehaviours:
   - {fileID: 6458883707610082767}
   - {fileID: 6458883707610082765}
+  snergys:
+  - {fileID: 4426208182413872607}
+  healthAdd: 0
+  attackDefault: 1
+  synergyAttackMult: 1
 --- !u!50 &8375581828794057548
 Rigidbody2D:
   serializedVersion: 4
@@ -281,3 +288,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!114 &-5712329446017100808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6458883707610082775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c884029c573b2a44bafd57d54304b5bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mAtivateTime: 0
+--- !u!114 &4426208182413872607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6458883707610082775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ea15dcd7a24754a8ffdf4efbb72d1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mAtivateTime: 0

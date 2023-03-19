@@ -49,7 +49,7 @@ public abstract class AttackBehaviour : MonoBehaviour
         }
     }
 
-    public abstract void ExecuteAttack(GameObject target = null, Transform startPoint = null);
+    public abstract void ExecuteAttack(GameObject target = null, Transform startPoint = null, float attackMult = 1f);
 
 
 }

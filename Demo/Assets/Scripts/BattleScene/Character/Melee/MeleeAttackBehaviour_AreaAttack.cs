@@ -6,7 +6,7 @@ public class MeleeAttackBehaviour_AreaAttack : AttackBehaviour
 {
     public ManualCollision attackCollision;
 
-    public override void ExecuteAttack(GameObject target = null, Transform startPoint = null)
+    public override void ExecuteAttack(GameObject target = null, Transform startPoint = null, float attackMult = 1f)
     {
         
         Collider2D[] colliders = attackCollision?.CheckOverlapBox(targetMask);
@@ -15,7 +15,7 @@ public class MeleeAttackBehaviour_AreaAttack : AttackBehaviour
         foreach (Collider2D collider in colliders)
         {
             
-            collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(damage, effectPrefab);
+            collider.gameObject.GetComponent<IDamageable>()?.TakeDamage((int)(damage * attackMult), effectPrefab);
             collider.gameObject.GetComponent<BaseCharacterController>()?.KnockBack(knockBackForce);
         }
 
