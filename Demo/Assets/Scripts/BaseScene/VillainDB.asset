@@ -14,11 +14,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Villain:
   - id: 1
-    vilName: test_1
-    weight: 1
+    Vil_Name: test_1
+    Vil_Grade: common
+    weight: 60
+    Range_Normal: 0
+    Range_Escape: 0
+    Vil_Synergy_1: 0
+    Vil_Synergy_2: 0
+    Vil_Cooltime: 0
+    Vil_Hp_Min: 0
+    Vil_Hp_Max: 0
+    Vil_Str_Min: 0
+    Vil_Str_Max: 0
+    Vil_img: {fileID: 0}
   - id: 2
-    vilName: test_2
-    weight: 10
+    Vil_Name: test_2
+    Vil_Grade: rare
+    weight: 30
+    Range_Normal: 0
+    Range_Escape: 0
+    Vil_Synergy_1: 0
+    Vil_Synergy_2: 0
+    Vil_Cooltime: 0
+    Vil_Hp_Min: 0
+    Vil_Hp_Max: 0
+    Vil_Str_Min: 0
+    Vil_Str_Max: 0
+    Vil_img: {fileID: 0}
   - id: 3
-    vilName: test_3
-    weight: 100
+    Vil_Name: test_3
+    Vil_Grade: epic
+    weight: 8
+    Range_Normal: 0
+    Range_Escape: 0
+    Vil_Synergy_1: 0
+    Vil_Synergy_2: 0
+    Vil_Cooltime: 0
+    Vil_Hp_Min: 0
+    Vil_Hp_Max: 0
+    Vil_Str_Min: 0
+    Vil_Str_Max: 0
+    Vil_img: {fileID: 0}
+  - id: 4
+    Vil_Name: test_4
+    Vil_Grade: demon
+    weight: 2
+    Range_Normal: 0
+    Range_Escape: 0
+    Vil_Synergy_1: 0
+    Vil_Synergy_2: 0
+    Vil_Cooltime: 0
+    Vil_Hp_Min: 0
+    Vil_Hp_Max: 0
+    Vil_Str_Min: 0
+    Vil_Str_Max: 0
+    Vil_img: {fileID: 0}
+  Dialog:
+  - branch: 1
+    side: 0
+    text: "\u314E\u3147"
+  - branch: 1
+    side: 1
+    text: "\u3147\u3147"
+  - branch: 1
+    side: 0
+    text: "\u3142\u3142"
