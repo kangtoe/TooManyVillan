@@ -2296,8 +2296,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gatcha:
+  - rarity: epic
+    rate: 1
+    reward:
+    - {fileID: 11400000, guid: 4ae69e877ba057745865130145147dd2, type: 2}
+    - {fileID: 11400000, guid: d374d27403a1a3a4a9044a2a42bdbd76, type: 2}
+    - {fileID: 11400000, guid: 7d7ee78954c09ce4fa890cbf7c1951b4, type: 2}
+  - rarity: rare
+    rate: 11
+    reward:
+    - {fileID: 11400000, guid: b838349905f04f24fa4baee0f67a1388, type: 2}
+    - {fileID: 11400000, guid: 264902ee31fd5124ea24d74ee0584f11, type: 2}
+    - {fileID: 11400000, guid: b3cff39e40311bf41bf4f867a7e14a2f, type: 2}
+    - {fileID: 11400000, guid: 710a58e14244b98448f1f27f8c8365f8, type: 2}
+    - {fileID: 11400000, guid: 19b435aee90bad64ba2e5c88607e4d56, type: 2}
+    - {fileID: 11400000, guid: 3010c9a7641acaa48ba07fd6d83e0c62, type: 2}
   - rarity: common
-    rate: 89
+    rate: 100
     reward:
     - {fileID: 11400000, guid: d30d137673956ea46aff36d46a728264, type: 2}
     - {fileID: 11400000, guid: 32aca44e99f1b0441bea6f7319e55280, type: 2}
@@ -2306,21 +2321,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: b71e557c805ffed4f9c3b10a0daebdfa, type: 2}
     - {fileID: 11400000, guid: bb5628998988e8545a2f0f9aa025b317, type: 2}
     - {fileID: 11400000, guid: 7757e98b32a76a34b9b49f3b559b8141, type: 2}
-  - rarity: rare
-    rate: 10
-    reward:
-    - {fileID: 11400000, guid: b838349905f04f24fa4baee0f67a1388, type: 2}
-    - {fileID: 11400000, guid: 264902ee31fd5124ea24d74ee0584f11, type: 2}
-    - {fileID: 11400000, guid: b3cff39e40311bf41bf4f867a7e14a2f, type: 2}
-    - {fileID: 11400000, guid: 710a58e14244b98448f1f27f8c8365f8, type: 2}
-    - {fileID: 11400000, guid: 19b435aee90bad64ba2e5c88607e4d56, type: 2}
-    - {fileID: 11400000, guid: 3010c9a7641acaa48ba07fd6d83e0c62, type: 2}
-  - rarity: epic
-    rate: 1
-    reward:
-    - {fileID: 11400000, guid: 4ae69e877ba057745865130145147dd2, type: 2}
-    - {fileID: 11400000, guid: d374d27403a1a3a4a9044a2a42bdbd76, type: 2}
-    - {fileID: 11400000, guid: 7d7ee78954c09ce4fa890cbf7c1951b4, type: 2}
   parent: {fileID: 897917653}
   pos: {fileID: 1668879895}
   characterCardGO: {fileID: 4192133582276355578, guid: 69dee7a1e1bae9e47b8b525a0871c718, type: 3}

@@ -24,10 +24,12 @@ public class GatchaManager : MonoBehaviour
         characterCard.transform.localScale = new Vector3(1,1,1);
         card = characterCard.GetComponent<Cards>();
         
-        int rnd = Random.Range(1,101);
+        int rnd = Random.Range(1,100);
+        int adj = 0;
         for(int i = 0 ; i < gatcha.Length ; i++)
         {
-            if(rnd <= gatcha[i].rate)
+            if(idx == time -1 && i == 1)    adj = 89;
+            if(rnd <= gatcha[i].rate+adj)
             {
                 card.card = Reward(gatcha[i].rarity);
                 break;
