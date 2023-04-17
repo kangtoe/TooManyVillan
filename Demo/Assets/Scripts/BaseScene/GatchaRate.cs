@@ -11,5 +11,5 @@ public class GatchaRate
    [Range(1,100)]
    public int rate;
 
-
+   public CardInfo[] reward;
 }

@@ -7,5 +7,4 @@ using UnityEngine;
 public class VillainDB : ScriptableObject
 {
 	public List<VillainDBEntity> Villain;
-	public List<VillainDialogEntity> Dialog;
 }

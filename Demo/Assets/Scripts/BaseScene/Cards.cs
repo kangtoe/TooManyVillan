@@ -15,8 +15,11 @@ public class Cards : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        img.sprite = card.image;
-        name.text = DB.Villain[card.id].Vil_Name;
+        if(card != null)
+        {
+            img.sprite = card.image;
+            name.text = DB.Villain[card.id].Vil_Name;
+        }
         
     }
 
