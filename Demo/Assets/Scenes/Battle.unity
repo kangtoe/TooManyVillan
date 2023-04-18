@@ -247,14 +247,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCharacters:
   - {fileID: 1699874921548684872, guid: 78483bf108799af4d997195f0b7dd2e0, type: 3}
-  - {fileID: 2547577519877633848, guid: d5bfe54795b4aa14299a1f2a380b7643, type: 3}
   - {fileID: 6458883707610082775, guid: 0ff89eea43ab513409ded0ec9655181a, type: 3}
-  - {fileID: 3679330987907876747, guid: c020ba48b88f3714194faca654342bcb, type: 3}
   enemyCharacters:
   - {fileID: 293244688282992123, guid: 95986b1ebbe3f304b9615aa5c7c88d53, type: 3}
-  - {fileID: 293244688282992123, guid: 95986b1ebbe3f304b9615aa5c7c88d53, type: 3}
   - {fileID: 6287777147462727189, guid: af63412c201cb3d41b271fb267c71d77, type: 3}
-  - {fileID: 1798794495456648206, guid: 9273e2b5b9a26fd4ab58d07f81cf3e63, type: 3}
   bossCharacter: {fileID: 2351412744343187248, guid: cec0d87244b550f4197e492ce4c48710, type: 3}
 --- !u!4 &1168442243
 Transform:
@@ -331,6 +327,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   count_Newbie: 0
   count_Saibi: 0
+  count_NightVil: 0
+  count_Vampire: 0
 --- !u!4 &1466603826
 Transform:
   m_ObjectHideFlags: 0

@@ -60,6 +60,11 @@ public class AttackState : State<BaseCharacterController>
 
     public override void Update(float deltaTime)
     {
+        if(!context.IsAlive) // 공격이 다 끝나고 죽는 것이 아닌, 공격하다가도 죽을 수 있게 해야한다.
+        {
+            stateMachine.ChangeState<DeadState>();
+        }
+
         //if (context.attackTarget) // 공격 대상이 있는 경우
         //{
         //    if (context.FallBack && attackStateController.IsInAttackState == false) // FallBack이며 StateMachine에서 나올 경우

@@ -13,16 +13,19 @@ public abstract class AttackBehaviour : MonoBehaviour
 
     public int animationIndex;
 
-    public int damage;
-    
+    [SerializeField]
+    protected int damage;
+
+    [SerializeField]
+    protected float defaultMult; // 기본적으로 스킬에 곱해주는 수치, ex) 파워슬래시는 기본 공격력의 200퍼센트
+
     public int priority;
 
-    public float knockBackForce;
-
     [SerializeField]
-    private float coolTime;
+    protected float knockBackForce;
 
-    [SerializeField]
+    public float coolTime;
+
     public float calcCoolTime = 0.0f;
     //protected float calcCoolTime = 0.0f;
 
@@ -36,6 +39,12 @@ public abstract class AttackBehaviour : MonoBehaviour
     public bool IsAvailable => calcCoolTime >= coolTime;
 
     #endregion Variables
+    protected virtual void Awake()
+    {
+        damage = this.GetComponent<BaseCharacterController>().strength;
+
+    }
+
     protected virtual void Start()
     {
         calcCoolTime = coolTime;
@@ -50,6 +59,5 @@ public abstract class AttackBehaviour : MonoBehaviour
     }
 
     public abstract void ExecuteAttack(GameObject target = null, Transform startPoint = null, float attackMult = 1f);
-
 
 }

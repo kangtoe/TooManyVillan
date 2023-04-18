@@ -208,6 +208,7 @@ MonoBehaviour:
   developmentDescription: "\uADFC\uC811 \uCE90\uB9AD\uD130 \uC77C\uBC18 \uACF5\uACA9\uC785\uB2C8\uB2E4."
   animationIndex: 0
   damage: 10
+  defaultMult: 0
   priority: 0
   knockBackForce: 0
   coolTime: 1
@@ -216,6 +217,7 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 0
+  MultNum: 1
 --- !u!114 &2547577519877633824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +233,7 @@ MonoBehaviour:
   developmentDescription: "\uADFC\uC811 \uCE90\uB9AD\uD130 \uC2A4\uD0AC \uACF5\uACA9\uC785\uB2C8\uB2E4."
   animationIndex: 1
   damage: 15
+  defaultMult: 0
   priority: 1
   knockBackForce: 0
   coolTime: 5
@@ -240,6 +243,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   attackCollision: {fileID: 2547577519574380872}
+  MultNum: 2.5
 --- !u!114 &2547577519877633853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,13 +256,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5cc0e5a5cccf349ab5c343fb8f4c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 0}
+  rigid: {fileID: 0}
   allignTrigger: 0
   waitingTrigger: 0
   waitingToMoveTrigger: 0
   allignPoint: 0
   MyGroup: {fileID: 0}
   hitEffectPrefab: {fileID: 0}
+  strength: 10
   maxHealth: 300
   health: 100
   dir: 1
@@ -273,14 +278,12 @@ MonoBehaviour:
   fallBackDistance: 0
   fallBackTime: 0
   projectileTransform: {fileID: 0}
-  attackBehaviours:
-  - {fileID: 2547577519877633826}
-  - {fileID: 2547577519877633824}
-  snergys:
-  - {fileID: 1417286071698571166}
+  attackBehaviours: []
+  synergys: []
   healthAdd: 0
   attackDefault: 1
   synergyAttackMult: 1
+  isVampire: 0
 --- !u!50 &5319129892986940937
 Rigidbody2D:
   serializedVersion: 4
@@ -315,6 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAtivateTime: 0
+  mType: 0
 --- !u!114 &8627387399811329675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,3 +332,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAtivateTime: 0
+  mType: 0

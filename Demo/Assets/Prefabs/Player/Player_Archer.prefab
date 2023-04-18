@@ -163,6 +163,7 @@ MonoBehaviour:
   developmentDescription: "\uD65C \uCE90\uB9AD\uD130 \uC2A4\uD0AC \uACF5\uACA9\uC785\uB2C8\uB2E4."
   animationIndex: 0
   damage: 10
+  defaultMult: 0
   priority: 0
   knockBackForce: 0
   coolTime: 1
@@ -172,6 +173,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   bullet: {fileID: 4871246880406019309, guid: e02ed506433ed014fa59665d9195c93d, type: 3}
+  MultNum: 2.5
 --- !u!114 &3679330987907876756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,13 +186,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5cc0e5a5cccf349ab5c343fb8f4c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 0}
+  rigid: {fileID: 0}
   allignTrigger: 0
   waitingTrigger: 0
   waitingToMoveTrigger: 0
   allignPoint: 0
   MyGroup: {fileID: 0}
   hitEffectPrefab: {fileID: 0}
+  strength: 10
   maxHealth: 100
   health: 100
   dir: 1
@@ -205,13 +208,12 @@ MonoBehaviour:
   fallBackDistance: 2
   fallBackTime: 1.5
   projectileTransform: {fileID: 1192916067669781989}
-  attackBehaviours:
-  - {fileID: 3679330987907876753}
-  snergys:
-  - {fileID: 5158881988267951776}
+  attackBehaviours: []
+  synergys: []
   healthAdd: 0
   attackDefault: 1
   synergyAttackMult: 1
+  isVampire: 0
 --- !u!50 &2202550234922526992
 Rigidbody2D:
   serializedVersion: 4
@@ -246,6 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAtivateTime: 0
+  mType: 0
 --- !u!114 &6531586011028119580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAtivateTime: 0
+  mType: 0
 --- !u!1 &5989983891144272497
 GameObject:
   m_ObjectHideFlags: 0

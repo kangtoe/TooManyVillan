@@ -161,6 +161,7 @@ MonoBehaviour:
   developmentDescription: 
   animationIndex: 0
   damage: 10
+  defaultMult: 0
   priority: 0
   knockBackForce: 0
   coolTime: 1
@@ -170,6 +171,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   attackCollision: {fileID: 293244688586210187}
+  MultNum: 2.5
 --- !u!114 &293244688282992126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,13 +184,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5cc0e5a5cccf349ab5c343fb8f4c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 0}
+  rigid: {fileID: 0}
   allignTrigger: 0
   waitingTrigger: 0
   waitingToMoveTrigger: 0
   allignPoint: 0
   MyGroup: {fileID: 7491253207422018070, guid: fc5302aa47c22534c94fc84ff664760b, type: 3}
   hitEffectPrefab: {fileID: 0}
+  strength: 10
   maxHealth: 100
   health: 100
   dir: -1
@@ -203,8 +206,12 @@ MonoBehaviour:
   fallBackDistance: 0
   fallBackTime: 0
   projectileTransform: {fileID: 0}
-  attackBehaviours:
-  - {fileID: 8178506712197376364}
+  attackBehaviours: []
+  synergys: []
+  healthAdd: 0
+  attackDefault: 1
+  synergyAttackMult: 1
+  isVampire: 0
 --- !u!50 &7103379975001917269
 Rigidbody2D:
   serializedVersion: 4

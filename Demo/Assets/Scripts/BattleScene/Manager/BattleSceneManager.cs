@@ -124,10 +124,10 @@ public class BattleSceneManager : MonoBehaviour
             playerGroup.characterGroup.Add(character);
             character.MyGroup = playerGroup;
 
-            for (int j = 0; j < character.snergys.Count; j++)
+            for (int j = 0; j < character.synergys.Count; j++)
             {
                 // 각 캐릭터들의 시너지들을 버프 매니저에 전달한다. 
-                character.snergys[j].AddSynergyCount();
+                character.synergys[j].AddSynergyCount();
             }
         }
 

@@ -20,24 +20,28 @@ public class CombatMoveState : State<BaseCharacterController>
 
     public override void Update(float deltaTime)
     {
-        // 적이 탐색 사거리 내에 있는 경우 - > 공격 사거리 내인지 아닌지 따라서 나눴다. 
-        if (context.attackTarget)
+        // 적이 탐색 사거리 내에 있는 경우 - > 공격 사거리 내인지 아닌지 따라서 나눴다.
+        if(BattleSceneManager.instance.isEngaging)
         {
-            if (context.CanAttack)
+            if (context.attackTarget)
             {
-                //Debug.Log("AttackBehaviour CoolTIme : " + context.CurrentAttackBehaviour.calcCoolTime);
-                stateMachine.ChangeState<AttackState>();
+                if (context.CanAttack)
+                {
+                    //Debug.Log("AttackBehaviour CoolTIme : " + context.CurrentAttackBehaviour.calcCoolTime);
+                    stateMachine.ChangeState<AttackState>();
+                    return;
+                }
+
+                stateMachine.ChangeState<CombatIdleState>();
                 return;
             }
 
-            stateMachine.ChangeState<CombatIdleState>();
-            return;
+            // 여기서도 engaging 인지를 판단해야 적이 없으면 
+
+            Transform tf = context.transform;
+
+            tf.Translate(tf.right * context.dir * context.moveSpeed * Time.deltaTime);
         }
-
-        
-        Transform tf = context.transform;
-
-        tf.Translate(tf.right * context.dir * context.moveSpeed * Time.deltaTime);
     }
 
     public override void OnExit()

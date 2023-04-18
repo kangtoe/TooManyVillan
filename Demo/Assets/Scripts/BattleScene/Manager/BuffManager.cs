@@ -8,7 +8,8 @@ public class BuffManager : MonoBehaviour
 
     public int count_Newbie = 0;
     public int count_Saibi = 0;
-
+    public int count_NightVil = 0;
+    public int count_Vampire = 0;
     private void Awake()
     {
 
@@ -31,11 +32,12 @@ public class BuffManager : MonoBehaviour
     }
 
 
-    // 시너지 체크 후 버프 발동
     public void SynergyCheck()
     {
         Buff_Newbie();
         Buff_Saibi();
+        Buff_NightVil();
+        Buff_Vampire();
     }
 
     #region Buff_Synergy
@@ -54,7 +56,6 @@ public class BuffManager : MonoBehaviour
             }
         }
 
-        // 시너지 발동 유무에 상관없이 카운트를 다시 초기화 해준다.
         count_Newbie = 0;
     }
 
@@ -106,8 +107,75 @@ public class BuffManager : MonoBehaviour
                 break;
         }
 
-        // 시너지 발동 유무에 상관없이 카운트를 다시 초기화 해준다.
         count_Saibi = 0;
+    }
+
+    private void Buff_NightVil()
+    {
+        int GroupCount = BattleSceneManager.instance.playerGroup.characterGroup.Count;
+
+        if (count_NightVil == 2)
+        {
+            for (int i = 0; i < GroupCount; i++) // 전체 캐릭터들 중에서
+            {
+                BaseCharacterController character = BattleSceneManager.instance.playerGroup.characterGroup[i];
+
+                for (int j = 0; j < character.synergys.Count; j++) // 각 캐릭터가 가지고 있는 시너지들 중에서
+                {
+                    if (character.synergys[j].mType == SynergyBase.ESynergyType.NightVil) // 어둠의 자식이 있으면 해당 캐릭터 버프
+                    {
+                        for (int l = 0; l < character.attackBehaviours.Count; l++)
+                        {
+                            character.attackBehaviours[l].coolTime *= 0.7f; // 각각의 스킬 쿨타임 30퍼 감소
+
+                        }
+                        character.synergyAttackMult *= 1.3f; // 공격력 30퍼 증가
+                        break;
+                    }
+
+                }
+
+            }
+
+        }
+        count_NightVil = 0;
+    }
+
+    private void Buff_Vampire()
+    {
+        int GroupCount = BattleSceneManager.instance.playerGroup.characterGroup.Count;
+
+        int Rand = Random.Range(0, 2); // 0과 1을 무작위로 뽑아냄
+        if (count_Vampire == 2)
+        {
+            for (int i = 0; i < GroupCount; i++)
+            {
+                BaseCharacterController character = BattleSceneManager.instance.playerGroup.characterGroup[i];
+
+                for (int j = 0; j < character.synergys.Count; j++)
+                {
+                    if (character.synergys[j].mType == SynergyBase.ESynergyType.Vampire) // 만약 가지고 있는 시너지 중에 박쥐가 있으면 해당 캐릭터 버프
+                    {
+                        switch (Rand)
+                        {
+                            case 0:
+                                character.synergyAttackMult *= 1.3f; // 0인 경우 공격력 1.3배 증가
+                                Debug.Log("뱀파이어 synergyAttackMult ");
+                                break;
+                            case 1:
+                                character.isVampire = true; // 1인 경우 흡혈 가능 여부 체크
+                                Debug.Log("뱀파이어 isVampire ");
+                                break;
+                        }
+                        break; // 박쥐 시너지를 활성화 시켜줬거나 없으면 바로 다음 캐릭터 검사
+                    }
+
+
+                }
+            }
+        }
+
+        count_Vampire = 0;
     }
     #endregion Buff_Synergy
 }

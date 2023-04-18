@@ -11,15 +11,16 @@ public class BaseCharacterController : MonoBehaviour, IAttackable, IDamageable//
     protected StateMachine<BaseCharacterController> stateMachine;
 
     [SerializeField]
-    private Rigidbody2D rigidbody;
+    private Rigidbody2D rigid;
 
     public bool allignTrigger = false;
     public bool waitingTrigger = false; // 모두 정렬할 때까지 기다리고 있는가 
     public bool waitingToMoveTrigger = false; // 모두 정렬하고 이동할 수 있는가
     public float allignPoint; // 캐릭터 정렬 시 이동하는 x좌표 위치
     public GroupObject MyGroup; // 캐릭터 자신이 속해있는 그룹
-    public GameObject hitEffectPrefab; 
+    public GameObject hitEffectPrefab;
     
+    public int strength = 10;
     public int maxHealth = 100;
     public int health;
 
@@ -37,27 +38,51 @@ public class BaseCharacterController : MonoBehaviour, IAttackable, IDamageable//
     public Transform projectileTransform; // 원거리 유닛 공격 시 발사체의 격발 위치
 
 
-    [SerializeField]
-    private List<AttackBehaviour> attackBehaviours = new List<AttackBehaviour>(); // 가능한 공격 및 스킬을 담은 리스트
 
-    public List<SynergyBase> snergys = new List<SynergyBase>(); // 보유한 시너지들을 담은 리스트
+    public List<AttackBehaviour> attackBehaviours = new List<AttackBehaviour>(); // 가능한 공격 및 스킬을 담은 리스트
+
+    public List<SynergyBase> synergys = new List<SynergyBase>(); // 보유한 시너지들을 담은 리스트
     public int healthAdd = 0; // 체력 및 보호막 버프 시 더해주는 수치
     public float attackDefault = 1f; // 기본 공격력 수치
     public float synergyAttackMult = 1.0f; // 시너지에 의한 공격력 버프 시 곱해주는 수치
+    public bool isVampire = false; // 흡혈 가능한지 체크해주는 bool
+
     #endregion Variables
 
     #region Properties
     public bool FallBack => FallBackCheck();
     public bool CanAttack => CheckAttackBehaviour();// 현재 가능한 공격이 있는가? 
-    //public bool IsCurrentAttackBehaviourAvailable => (CurrentAttackBehaviour != null) && ();
+                                                    //public bool IsCurrentAttackBehaviourAvailable => (CurrentAttackBehaviour != null) && ();
     #endregion Properties
 
 
 
     #region Unity Methods
+
+    private void Awake()
+    {
+        foreach (SynergyBase synergy in this.GetComponents<SynergyBase>())
+        {
+            if (synergy != null) 
+            {
+                synergys.Add(synergy);
+            }
+            
+        }
+
+        foreach (AttackBehaviour attackBehaviour in this.GetComponents<AttackBehaviour>())
+        {
+            if(attackBehaviour != null)
+            {
+                attackBehaviours.Add(attackBehaviour);
+            }
+
+        }
+    }
+
     private void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rigid = GetComponent<Rigidbody2D>();
         stateMachine = new StateMachine<BaseCharacterController>(this, new NonCombatMoveState());
         stateMachine.AddState(new AllignState());
         stateMachine.AddState(new NonCombatIdleState());
@@ -68,7 +93,7 @@ public class BaseCharacterController : MonoBehaviour, IAttackable, IDamageable//
         stateMachine.AddState(new FallBackState());
         stateMachine.AddState(new DeadState());
 
-
+        // 이 부분의 healthAdd는 흰색 체력으로 대신할 예정
         health = maxHealth + healthAdd;
         // 시너지로 인한 버프는 다음과 같이 기본 공격력으로 세팅
         attackDefault = attackDefault * synergyAttackMult;
@@ -162,7 +187,9 @@ public class BaseCharacterController : MonoBehaviour, IAttackable, IDamageable//
 
     private void AllignCheck()
     {
-        if (allignTrigger == true && stateMachine.CurrentState.GetType().Name == "CombatIdleState") // 현재 상태가 CombatIdleState 인 경우에만 정렬
+        if (allignTrigger == true && 
+            (stateMachine.CurrentState.GetType().Name == "CombatIdleState"
+            || stateMachine.CurrentState.GetType().Name == "CombatMoveState")) // 현재 상태가 CombatIdleState 또는 CombatMoveState 인 경우에만 정렬
         {
             
             allignTrigger = false;
@@ -326,7 +353,7 @@ public class BaseCharacterController : MonoBehaviour, IAttackable, IDamageable//
 
     public void KnockBack(float knockBackForce)
     {
-        rigidbody.AddForce(Vector2.right * -1 * dir * knockBackForce, ForceMode2D.Impulse);
+        rigid.AddForce(Vector2.right * -1 * dir * knockBackForce, ForceMode2D.Impulse);
         //rigidbody.AddForce(transform.up, ForceMode2D.Impulse);
     }
     #endregion IDamageable Interfaces
