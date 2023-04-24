@@ -32,6 +32,7 @@ public class GatchaManager : MonoBehaviour
             if(rnd <= gatcha[i].rate+adj)
             {
                 card.card = Reward(gatcha[i].rarity);
+                card.frame.sprite = gatcha[i].frame;
                 break;
             }
         } 

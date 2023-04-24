@@ -6,8 +6,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "new card", menuName = "Character")]
 public class CardInfo : ScriptableObject
 {
-    public  Sprite image;
-    public  int id;
+    public  Sprite profile_image;
+    public int id;
+    public  Characters characters;
 }
    
 

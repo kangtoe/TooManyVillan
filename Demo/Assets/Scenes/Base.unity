@@ -2297,12 +2297,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gatcha:
   - rarity: epic
+    frame: {fileID: 21300000, guid: fbfa1c7035e60384f8a09a8d800e9eaa, type: 3}
     rate: 1
     reward:
     - {fileID: 11400000, guid: 4ae69e877ba057745865130145147dd2, type: 2}
     - {fileID: 11400000, guid: d374d27403a1a3a4a9044a2a42bdbd76, type: 2}
     - {fileID: 11400000, guid: 7d7ee78954c09ce4fa890cbf7c1951b4, type: 2}
   - rarity: rare
+    frame: {fileID: 21300000, guid: 7e4fd5b704b50184ea808ce25c774ea2, type: 3}
     rate: 11
     reward:
     - {fileID: 11400000, guid: b838349905f04f24fa4baee0f67a1388, type: 2}
@@ -2312,6 +2314,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 19b435aee90bad64ba2e5c88607e4d56, type: 2}
     - {fileID: 11400000, guid: 3010c9a7641acaa48ba07fd6d83e0c62, type: 2}
   - rarity: common
+    frame: {fileID: 21300000, guid: 6118a17d5d8aa33429c52f4400b66080, type: 3}
     rate: 100
     reward:
     - {fileID: 11400000, guid: d30d137673956ea46aff36d46a728264, type: 2}

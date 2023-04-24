@@ -7,6 +7,7 @@ using UnityEngine;
 public class GatchaRate
 {
    public string rarity;
+   public Sprite frame;
 
    [Range(1,100)]
    public int rate;
