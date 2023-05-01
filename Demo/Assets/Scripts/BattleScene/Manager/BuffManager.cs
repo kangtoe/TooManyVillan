@@ -10,6 +10,8 @@ public class BuffManager : MonoBehaviour
     public int count_Saibi = 0;
     public int count_NightVil = 0;
     public int count_Vampire = 0;
+    public int count_Ace = 0;
+    public int count_Interest = 0;
     private void Awake()
     {
 
@@ -38,6 +40,8 @@ public class BuffManager : MonoBehaviour
         Buff_Saibi();
         Buff_NightVil();
         Buff_Vampire();
+        Buff_Ace();
+        Buff_Interest();
     }
 
     #region Buff_Synergy
@@ -177,5 +181,81 @@ public class BuffManager : MonoBehaviour
 
         count_Vampire = 0;
     }
+
+    private void Buff_Ace()
+    {
+        int GroupCount = BattleSceneManager.instance.playerGroup.characterGroup.Count;
+
+        if (count_Ace == 1) // 열등감이 한명인 경우에만 실행
+        {
+            for (int i = 0; i < GroupCount; i++) // 전체 캐릭터들 중에서
+            {
+                BaseCharacterController character = BattleSceneManager.instance.playerGroup.characterGroup[i];
+
+                for (int j = 0; j < character.synergys.Count; j++) // 각 캐릭터가 가지고 있는 시너지들 중에서
+                {
+                    if (character.synergys[j].mType == SynergyBase.ESynergyType.Ace) // 열등감이 있으면 해당 캐릭터가 제일 높은 공격력인지 검사
+                    {
+                        for (int l = 0; l < GroupCount; l++)
+                        {
+                            if (l != i) // 자신의 경우 검사 패스 
+                            {
+                                if (character.strength <= BattleSceneManager.instance.playerGroup.characterGroup[l].strength) //열듬감의 공격력이 팀원보다 작거나 같은 경우엔 공격력 감소
+                                {
+                                    character.synergyAttackMult *= 0.8f; // 20퍼만큼 감소
+                                    break;
+                                }
+                            }
+
+                            if (l == GroupCount - 1) // 끝까지 검사를 다했다면 자신의 공격력과 같거나 높은 사람이 없으므로 공격력 증가
+                            {
+                                character.synergyAttackMult *= 1.3f; // 30퍼만큼 증가
+                            }
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+        count_Ace = 0;
+    }
+
+    private void Buff_Interest()
+    {
+
+        int GroupCount = BattleSceneManager.instance.playerGroup.characterGroup.Count;
+
+        switch (count_Interest)
+        {
+            case 0:
+                break;
+
+            case 1:
+                for(int i = 0; i < GroupCount; i ++)
+                {
+                    BaseCharacterController character = BattleSceneManager.instance.playerGroup.characterGroup[i];
+                    character.synergyAttackMult *= 0.9f; // 데미지 10퍼만큼 감소
+                    character.damageDecreaseMult *= 0.9f; // 받는 데미지도 10퍼만큼 감소
+                }
+                break;
+            case 2:
+                for (int i = 0; i < GroupCount; i++)
+                {
+                    BaseCharacterController character = BattleSceneManager.instance.playerGroup.characterGroup[i];
+                    character.synergyAttackMult *= 0.95f; // 데미지 5퍼만큼 감소
+                    character.damageDecreaseMult *= 0.8f; // 받는 데미지도 10퍼만큼 감소
+                }
+                break;
+
+            default:
+                break;
+        }
+
+        count_Interest = 0;
+    }
+
     #endregion Buff_Synergy
 }

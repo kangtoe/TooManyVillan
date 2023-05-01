@@ -61,8 +61,8 @@ GameObject:
   - component: {fileID: 1699874921548684880}
   - component: {fileID: 1699874921548684877}
   - component: {fileID: -208112223678675079}
-  - component: {fileID: 1272033551512752476}
-  - component: {fileID: 7386083720895617771}
+  - component: {fileID: 1597666761023231339}
+  - component: {fileID: 2437966985328632382}
   m_Layer: 9
   m_Name: Player_Fighter
   m_TagString: Untagged
@@ -263,7 +263,7 @@ MonoBehaviour:
   allignPoint: 0
   MyGroup: {fileID: 0}
   hitEffectPrefab: {fileID: 0}
-  strength: 10
+  strength: 25
   maxHealth: 200
   health: 100
   dir: 1
@@ -283,6 +283,7 @@ MonoBehaviour:
   healthAdd: 0
   attackDefault: 1
   synergyAttackMult: 1
+  damageDecreaseMult: 1
   isVampire: 0
 --- !u!50 &-208112223678675079
 Rigidbody2D:
@@ -305,7 +306,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
---- !u!114 &1272033551512752476
+--- !u!114 &1597666761023231339
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -314,12 +315,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1699874921548684872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a416610bffb27dc4ab02195c94ff0bd4, type: 3}
+  m_Script: {fileID: 11500000, guid: 819af2507d79d55479b010278f5a24b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mAtivateTime: 0
   mType: 0
---- !u!114 &7386083720895617771
+--- !u!114 &2437966985328632382
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -328,7 +329,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1699874921548684872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d48950c4284652f45951eb72cdc14dfc, type: 3}
+  m_Script: {fileID: 11500000, guid: f97049f544bc6aa4197ffb59301beaf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mAtivateTime: 0

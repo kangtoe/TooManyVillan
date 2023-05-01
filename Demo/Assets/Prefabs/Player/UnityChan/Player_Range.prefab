@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 6458883707610082760}
   - component: {fileID: 8375581828794057548}
   - component: {fileID: 2163870337269618239}
-  - component: {fileID: 5771359563865213737}
+  - component: {fileID: -7842311163061558082}
   m_Layer: 9
   m_Name: Player_Range
   m_TagString: Untagged
@@ -249,7 +249,7 @@ MonoBehaviour:
   allignPoint: 0
   MyGroup: {fileID: 0}
   hitEffectPrefab: {fileID: 0}
-  strength: 10
+  strength: 20
   maxHealth: 100
   health: 100
   dir: 1
@@ -269,6 +269,7 @@ MonoBehaviour:
   healthAdd: 0
   attackDefault: 1
   synergyAttackMult: 1
+  damageDecreaseMult: 1
   isVampire: 0
 --- !u!50 &8375581828794057548
 Rigidbody2D:
@@ -305,7 +306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAtivateTime: 0
   mType: 0
---- !u!114 &5771359563865213737
+--- !u!114 &-7842311163061558082
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -314,7 +315,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6458883707610082775}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d48950c4284652f45951eb72cdc14dfc, type: 3}
+  m_Script: {fileID: 11500000, guid: f97049f544bc6aa4197ffb59301beaf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mAtivateTime: 0

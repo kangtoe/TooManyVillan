@@ -42,9 +42,15 @@ public class BaseCharacterController : MonoBehaviour, IAttackable, IDamageable//
     public List<AttackBehaviour> attackBehaviours = new List<AttackBehaviour>(); // 가능한 공격 및 스킬을 담은 리스트
 
     public List<SynergyBase> synergys = new List<SynergyBase>(); // 보유한 시너지들을 담은 리스트
+    
     public int healthAdd = 0; // 체력 및 보호막 버프 시 더해주는 수치
+    
     public float attackDefault = 1f; // 기본 공격력 수치
+    
     public float synergyAttackMult = 1.0f; // 시너지에 의한 공격력 버프 시 곱해주는 수치
+
+    public float damageDecreaseMult = 1.0f; // 맞을 때 데미지가 감소되는 비율
+    
     public bool isVampire = false; // 흡혈 가능한지 체크해주는 bool
 
     #endregion Variables
@@ -312,9 +318,9 @@ public class BaseCharacterController : MonoBehaviour, IAttackable, IDamageable//
             return;
         }
 
-        health -= damage;
+        health -= (int)(damage * damageDecreaseMult);
 
-        Debug.Log("Damage : " + damage);
+        Debug.Log("Damage : " + (int)(damage * damageDecreaseMult));
 
         StartCoroutine("GetDamage");
 
