@@ -13,7 +13,7 @@ public class Cards : MonoBehaviour
     [SerializeField] private TextMeshProUGUI name;
 
     public Image frame;
-    // Start is called before the first frame update
+    
     void Start()
     {
         Init();
@@ -38,11 +38,6 @@ public class Cards : MonoBehaviour
 
         card.characters.Vil_Hp = Random.Range( DB.Villain[card.id].Vil_Hp_Min, DB.Villain[card.id].Vil_Hp_Max);
         card.characters.Vil_Str = Random.Range( DB.Villain[card.id].Vil_Str_Min, DB.Villain[card.id].Vil_Str_Max);
-        
-    }
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 }
